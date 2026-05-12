@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biblioteca — I Help ME</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body class="page-category">
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚙</span>
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </a>
+    <div class="search-bar-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar vídeos…" />
+      <button class="search-btn" id="searchBtn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+    <div class="header-actions">
+      <a href="profile.html" class="btn-icon" title="Perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="btn-icon menu-trigger" id="menuTrigger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="slide-menu" id="slideMenu" aria-hidden="true">
+  <div class="menu-header">
+    <span class="logo-text" style="font-size:1.1rem">I Help <strong>ME</strong></span>
+    <button class="menu-close" id="menuClose">✕</button>
+  </div>
+  <ul class="menu-nav">
+    <li><a href="index.html"><span>🏠</span> Início</a></li>
+    <li><a href="category.html?cat=hidraulica"><span>🔧</span> Hidráulica</a></li>
+    <li><a href="category.html?cat=eletrica"><span>⚡</span> Elétrica</a></li>
+    <li><a href="category.html?cat=marcenaria"><span>🪵</span> Marcenaria</a></li>
+    <li class="divider"></li>
+    <li><a href="profile.html"><span>👤</span> Meu Perfil</a></li>
+    <li><a href="profile.html#upload"><span>📤</span> Enviar Vídeo</a></li>
+    <li class="divider"></li>
+    <li><a href="settings.html"><span>⚙️</span> Configurações</a></li>
+    <li><a href="settings.html#notifications"><span>🔔</span> Notificações</a></li>
+    <li><a href="settings.html#privacy"><span>🔒</span> Privacidade</a></li>
+  </ul>
+  <div class="menu-footer"><p>© 2025 I Help ME</p></div>
+</nav>
+
+<!-- CATEGORY HERO -->
+<section class="cat-hero" id="catHero">
+  <div class="cat-hero-content">
+    <div class="breadcrumb"><a href="index.html">Início</a> › <span id="catBreadcrumb"></span></div>
+    <div class="cat-hero-icon" id="catHeroIcon"></div>
+    <h1 id="catHeroTitle">Biblioteca</h1>
+    <p id="catHeroDesc"></p>
+    <div class="cat-stats">
+      <span id="catVideoCount"></span>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <span class="filter-label">Filtrar:</span>
+    <div class="filter-chips" id="filterChips">
+      <button class="chip active" data-filter="todos">Todos</button>
+      <button class="chip" data-filter="iniciante">Iniciante</button>
+      <button class="chip" data-filter="intermediario">Intermediário</button>
+      <button class="chip" data-filter="avancado">Avançado</button>
+    </div>
+    <select class="sort-select" id="sortSelect">
+      <option value="recent">Mais recentes</option>
+      <option value="popular">Mais vistos</option>
+      <option value="az">A–Z</option>
+    </select>
+  </div>
+</div>
+
+<!-- VIDEO LIBRARY GRID -->
+<main class="library-main">
+  <div class="video-grid large" id="libraryGrid">
+    <!-- Cards injetados por JS -->
+  </div>
+  <div class="load-more-wrap">
+    <button class="btn-load-more" id="loadMoreBtn">Carregar mais</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">I Help <strong>ME</strong></span>
+      <p>Conhecimento técnico acessível para todos.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Categorias</strong>
+        <a href="category.html?cat=hidraulica">Hidráulica</a>
+        <a href="category.html?cat=eletrica">Elétrica</a>
+        <a href="category.html?cat=marcenaria">Marcenaria</a>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <a href="profile.html">Perfil</a>
+        <a href="settings.html">Configurações</a>
+        <a href="settings.html#privacy">Privacidade</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 I Help ME — Todos os direitos reservados.</p></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="category.js"></script>
+</body>
+</html>
