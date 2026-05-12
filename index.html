@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Help ME — Aprenda Fazendo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚙</span>
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </a>
+
+    <div class="search-bar-wrap" id="searchWrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar vídeos, técnicas, projetos…" />
+      <button class="search-btn" id="searchBtn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="header-actions">
+      <a href="profile.html" class="btn-icon" title="Perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </a>
+      <button class="btn-icon menu-trigger" id="menuTrigger" title="Menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ SLIDE MENU ═══════════════ -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="slide-menu" id="slideMenu" aria-hidden="true">
+  <div class="menu-header">
+    <span class="logo-text" style="font-size:1.1rem">I Help <strong>ME</strong></span>
+    <button class="menu-close" id="menuClose" aria-label="Fechar menu">✕</button>
+  </div>
+  <ul class="menu-nav">
+    <li><a href="index.html" class="active"><span>🏠</span> Início</a></li>
+    <li><a href="category.html?cat=hidraulica"><span>🔧</span> Hidráulica</a></li>
+    <li><a href="category.html?cat=eletrica"><span>⚡</span> Elétrica</a></li>
+    <li><a href="category.html?cat=marcenaria"><span>🪵</span> Marcenaria</a></li>
+    <li class="divider"></li>
+    <li><a href="profile.html"><span>👤</span> Meu Perfil</a></li>
+    <li><a href="profile.html#upload"><span>📤</span> Enviar Vídeo</a></li>
+    <li class="divider"></li>
+    <li><a href="settings.html"><span>⚙️</span> Configurações</a></li>
+    <li><a href="settings.html#notifications"><span>🔔</span> Notificações</a></li>
+    <li><a href="settings.html#privacy"><span>🔒</span> Privacidade</a></li>
+  </ul>
+  <div class="menu-footer">
+    <p>© 2025 I Help ME</p>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Conhecimento Prático em Vídeo</div>
+    <h1 class="hero-title">Aprenda a <span class="highlight">fazer</span>,<br>não só a saber.</h1>
+    <p class="hero-sub">Hidráulica, Elétrica e Marcenaria: vídeos técnicos criados por quem faz no dia a dia.</p>
+    <div class="hero-search-big">
+      <input type="text" id="heroSearch" placeholder="O que você quer aprender hoje?" />
+      <button id="heroSearchBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+        Buscar
+      </button>
+    </div>
+    <div class="hero-tags">
+      <span>Encanamento</span><span>Tomadas</span><span>Marcenaria</span><span>Disjuntor</span><span>Solda</span>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Role para explorar</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CATEGORIES ═══════════════ -->
+<section class="categories-section" id="categories">
+  <div class="section-header">
+    <h2>Categorias</h2>
+    <p>Escolha uma área e mergulhe no conhecimento</p>
+  </div>
+  <div class="category-cards">
+
+    <a href="category.html?cat=hidraulica" class="cat-card cat-hidraulica reveal">
+      <div class="cat-card-bg"></div>
+      <div class="cat-icon">🔧</div>
+      <div class="cat-info">
+        <h3>Hidráulica</h3>
+        <p>Encanamentos, registros, caixas d'água, bombas e sistemas de água quente.</p>
+        <span class="cat-count">48 vídeos</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a href="category.html?cat=eletrica" class="cat-card cat-eletrica reveal">
+      <div class="cat-card-bg"></div>
+      <div class="cat-icon">⚡</div>
+      <div class="cat-info">
+        <h3>Elétrica</h3>
+        <p>Instalações, disjuntores, tomadas, iluminação LED e painéis elétricos.</p>
+        <span class="cat-count">62 vídeos</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+    <a href="category.html?cat=marcenaria" class="cat-card cat-marcenaria reveal">
+      <div class="cat-card-bg"></div>
+      <div class="cat-icon">🪵</div>
+      <div class="cat-info">
+        <h3>Marcenaria</h3>
+        <p>Cortes, encaixes, acabamentos, verniz e construção de móveis planejados.</p>
+        <span class="cat-count">35 vídeos</span>
+      </div>
+      <div class="cat-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FEATURED VIDEOS ═══════════════ -->
+<section class="featured-section reveal-section">
+  <div class="section-header">
+    <h2>Em Destaque</h2>
+    <a href="category.html?cat=todos" class="see-all">Ver todos →</a>
+  </div>
+  <div class="video-grid" id="featuredGrid">
+    <!-- JS injeta os cards -->
+  </div>
+</section>
+
+<!-- ═══════════════ TRENDING ═══════════════ -->
+<section class="trending-section reveal-section">
+  <div class="section-header">
+    <h2>🔥 Mais Assistidos</h2>
+    <a href="category.html?cat=todos" class="see-all">Ver todos →</a>
+  </div>
+  <div class="video-row" id="trendingRow">
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">I Help <strong>ME</strong></span>
+      <p>Conhecimento técnico acessível para todos.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Categorias</strong>
+        <a href="category.html?cat=hidraulica">Hidráulica</a>
+        <a href="category.html?cat=eletrica">Elétrica</a>
+        <a href="category.html?cat=marcenaria">Marcenaria</a>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <a href="profile.html">Perfil</a>
+        <a href="settings.html">Configurações</a>
+        <a href="settings.html#privacy">Privacidade</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 I Help ME — Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- Search results overlay -->
+<div class="search-results-overlay" id="searchResults">
+  <div class="search-results-inner">
+    <h3>Resultados para: <span id="searchQuery"></span></h3>
+    <div class="video-grid" id="searchGrid"></div>
+    <button class="close-search" id="closeSearch">✕ Fechar</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
