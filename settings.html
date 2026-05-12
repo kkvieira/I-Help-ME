@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configurações — I Help ME</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body class="page-settings">
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚙</span>
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </a>
+    <div class="search-bar-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar vídeos…"/>
+      <button class="search-btn" id="searchBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+    <div class="header-actions">
+      <a href="profile.html" class="btn-icon" title="Perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="btn-icon menu-trigger" id="menuTrigger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="slide-menu" id="slideMenu" aria-hidden="true">
+  <div class="menu-header">
+    <span class="logo-text" style="font-size:1.1rem">I Help <strong>ME</strong></span>
+    <button class="menu-close" id="menuClose">✕</button>
+  </div>
+  <ul class="menu-nav">
+    <li><a href="index.html"><span>🏠</span> Início</a></li>
+    <li><a href="category.html?cat=hidraulica"><span>🔧</span> Hidráulica</a></li>
+    <li><a href="category.html?cat=eletrica"><span>⚡</span> Elétrica</a></li>
+    <li><a href="category.html?cat=marcenaria"><span>🪵</span> Marcenaria</a></li>
+    <li class="divider"></li>
+    <li><a href="profile.html"><span>👤</span> Meu Perfil</a></li>
+    <li><a href="profile.html#upload"><span>📤</span> Enviar Vídeo</a></li>
+    <li class="divider"></li>
+    <li><a href="settings.html" class="active"><span>⚙️</span> Configurações</a></li>
+    <li><a href="settings.html#notifications"><span>🔔</span> Notificações</a></li>
+    <li><a href="settings.html#privacy"><span>🔒</span> Privacidade</a></li>
+  </ul>
+  <div class="menu-footer"><p>© 2025 I Help ME</p></div>
+</nav>
+
+<!-- SETTINGS LAYOUT -->
+<div class="settings-layout">
+
+  <!-- Sidebar nav -->
+  <nav class="settings-nav">
+    <h2>Configurações</h2>
+    <ul>
+      <li><a href="#account" class="snav-link active" data-section="account">👤 Conta</a></li>
+      <li><a href="#notifications" class="snav-link" data-section="notifications">🔔 Notificações</a></li>
+      <li><a href="#privacy" class="snav-link" data-section="privacy">🔒 Privacidade</a></li>
+      <li><a href="#security" class="snav-link" data-section="security">🛡️ Segurança</a></li>
+      <li><a href="#connections" class="snav-link" data-section="connections">🔗 Conexões</a></li>
+      <li><a href="#appearance" class="snav-link" data-section="appearance">🎨 Aparência</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content -->
+  <div class="settings-content">
+
+    <!-- ACCOUNT -->
+    <section class="settings-section active" id="section-account">
+      <div class="section-title-row">
+        <h2>👤 Conta</h2>
+        <p>Gerencie suas informações pessoais</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Informações da conta</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Nome</strong>
+              <p>João Oliveira</p>
+            </div>
+            <button class="btn-text" onclick="alert('Abra o perfil para editar')">Alterar</button>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Email</strong>
+              <p>joao@ihelpme.com</p>
+            </div>
+            <button class="btn-text">Alterar</button>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Idioma</strong>
+              <p>Português (Brasil)</p>
+            </div>
+            <select class="form-input inline-select">
+              <option selected>Português (Brasil)</option>
+              <option>English</option>
+              <option>Español</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card danger-zone">
+        <div class="scard-header">Zona de perigo</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Excluir conta</strong>
+              <p>Esta ação é irreversível e removerá todos os seus dados.</p>
+            </div>
+            <button class="btn-danger" id="deleteAccountBtn">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section class="settings-section" id="section-notifications">
+      <div class="section-title-row">
+        <h2>🔔 Notificações</h2>
+        <p>Controle quando e como você recebe notificações</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Notificações por e-mail</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Novos vídeos nas categorias seguidas</strong>
+              <p>Receba e-mails quando um novo vídeo for publicado</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="notifNewVideos"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Respostas e comentários</strong>
+              <p>Seja notificado quando alguém responder</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="notifComments"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Boletim semanal</strong>
+              <p>Resumo dos melhores vídeos da semana</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="notifNewsletter"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Novidades e atualizações do site</strong>
+              <p>Comunicados oficiais da I Help ME</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="notifUpdates"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Notificações push (navegador)</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Ativar notificações push</strong>
+              <p>Receba alertas mesmo com o site fechado</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="notifPush"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Sons de notificação</strong>
+              <p>Tocar um som ao receber notificações</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="notifSound"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="saveNotifBtn">Salvar preferências</button>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="settings-section" id="section-privacy">
+      <div class="section-title-row">
+        <h2>🔒 Privacidade</h2>
+        <p>Controle quem pode ver suas informações</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Visibilidade do perfil</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Perfil público</strong>
+              <p>Qualquer pessoa pode ver seu perfil e vídeos publicados</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="privPublicProfile"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Mostrar histórico de visualizações</strong>
+              <p>Outros usuários podem ver o que você assistiu</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="privShowHistory"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Aparecer em buscas</strong>
+              <p>Seu perfil pode aparecer nos resultados de pesquisa</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="privSearchable"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Dados e cookies</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Cookies essenciais</strong>
+              <p>Necessários para o funcionamento do site</p>
+            </div>
+            <span class="badge-required">Obrigatório</span>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Cookies analíticos</strong>
+              <p>Nos ajudam a entender como você usa o site</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="privAnalytics"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Cookies de personalização</strong>
+              <p>Para recomendar conteúdo mais relevante</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="privPersonalization"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Seus dados</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Baixar meus dados</strong>
+              <p>Exporte todo o conteúdo e histórico da sua conta</p>
+            </div>
+            <button class="btn-secondary" id="downloadDataBtn">📥 Exportar</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="savePrivacyBtn">Salvar preferências</button>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="settings-section" id="section-security">
+      <div class="section-title-row">
+        <h2>🛡️ Segurança</h2>
+        <p>Proteja sua conta com camadas extras de segurança</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Senha</div>
+        <div class="scard-body">
+          <div class="form-group">
+            <label>Senha atual</label>
+            <input type="password" class="form-input" placeholder="••••••••"/>
+          </div>
+          <div class="form-group">
+            <label>Nova senha</label>
+            <input type="password" class="form-input" id="newPass" placeholder="Mínimo 8 caracteres"/>
+          </div>
+          <div class="form-group">
+            <label>Confirmar nova senha</label>
+            <input type="password" class="form-input" id="confirmPass" placeholder="Repita a nova senha"/>
+          </div>
+          <button class="btn-primary" id="changePassBtn">Alterar senha</button>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Autenticação em dois fatores (2FA)</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Ativar 2FA</strong>
+              <p>Use um aplicativo autenticador para uma camada extra de proteção</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" id="sec2FA"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Alertas de login suspeito</strong>
+              <p>Notificações quando um login incomum for detectado</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="secLoginAlert"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Sessões ativas</div>
+        <div class="scard-body">
+          <div class="session-item">
+            <div class="session-icon">💻</div>
+            <div>
+              <strong>Chrome · Windows 11</strong>
+              <p>São Paulo, Brasil · Agora (esta sessão)</p>
+            </div>
+            <span class="badge-active">Ativa</span>
+          </div>
+          <div class="session-item">
+            <div class="session-icon">📱</div>
+            <div>
+              <strong>Safari · iPhone 15</strong>
+              <p>São Paulo, Brasil · há 2 dias</p>
+            </div>
+            <button class="btn-text danger">Encerrar</button>
+          </div>
+          <button class="btn-secondary" id="revokeAllBtn">Encerrar todas as outras sessões</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNECTIONS -->
+    <section class="settings-section" id="section-connections">
+      <div class="section-title-row">
+        <h2>🔗 Conexões</h2>
+        <p>Gerencie contas vinculadas e integrações</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Contas vinculadas</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div class="connection-info">
+              <span class="conn-icon">G</span>
+              <div>
+                <strong>Google</strong>
+                <p>Não conectado</p>
+              </div>
+            </div>
+            <button class="btn-secondary" id="connectGoogle">Conectar</button>
+          </div>
+          <div class="setting-row">
+            <div class="connection-info">
+              <span class="conn-icon fb">f</span>
+              <div>
+                <strong>Facebook</strong>
+                <p>Não conectado</p>
+              </div>
+            </div>
+            <button class="btn-secondary" id="connectFacebook">Conectar</button>
+          </div>
+          <div class="setting-row">
+            <div class="connection-info">
+              <span class="conn-icon gh">⌨</span>
+              <div>
+                <strong>GitHub</strong>
+                <p>Não conectado</p>
+              </div>
+            </div>
+            <button class="btn-secondary" id="connectGithub">Conectar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">API e integrações</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Chave de API</strong>
+              <p>Use para integrações externas</p>
+            </div>
+            <button class="btn-secondary" id="genApiKey">Gerar chave</button>
+          </div>
+          <div id="apiKeyDisplay" style="display:none" class="api-key-box">
+            <code id="apiKeyCode"></code>
+            <button class="btn-text" id="copyApiKey">Copiar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPEARANCE -->
+    <section class="settings-section" id="section-appearance">
+      <div class="section-title-row">
+        <h2>🎨 Aparência</h2>
+        <p>Personalize a interface do site</p>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Tema</div>
+        <div class="scard-body">
+          <div class="theme-selector">
+            <label class="theme-option active" id="themeLight">
+              <input type="radio" name="theme" value="light" checked/>
+              <div class="theme-preview light-preview">
+                <div></div><div></div><div></div>
+              </div>
+              <span>Claro</span>
+            </label>
+            <label class="theme-option" id="themeDark">
+              <input type="radio" name="theme" value="dark"/>
+              <div class="theme-preview dark-preview">
+                <div></div><div></div><div></div>
+              </div>
+              <span>Escuro</span>
+            </label>
+            <label class="theme-option" id="themeSystem">
+              <input type="radio" name="theme" value="system"/>
+              <div class="theme-preview system-preview">
+                <div></div><div></div><div></div>
+              </div>
+              <span>Sistema</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <div class="scard-header">Qualidade de vídeo padrão</div>
+        <div class="scard-body">
+          <div class="setting-row">
+            <div>
+              <strong>Qualidade automática</strong>
+              <p>Ajusta automaticamente conforme sua conexão</p>
+            </div>
+            <select class="form-input inline-select">
+              <option>Automático</option>
+              <option>1080p</option>
+              <option>720p</option>
+              <option>480p</option>
+            </select>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>Reprodução automática</strong>
+              <p>Iniciar o próximo vídeo automaticamente</p>
+            </div>
+            <label class="toggle">
+              <input type="checkbox" checked id="autoplay"/>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="saveAppearanceBtn">Salvar aparência</button>
+    </section>
+
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Categorias</strong>
+        <a href="category.html?cat=hidraulica">Hidráulica</a>
+        <a href="category.html?cat=eletrica">Elétrica</a>
+        <a href="category.html?cat=marcenaria">Marcenaria</a>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <a href="profile.html">Perfil</a>
+        <a href="settings.html">Configurações</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 I Help ME — Todos os direitos reservados.</p></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="settings.js"></script>
+</body>
+</html>

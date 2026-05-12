@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assistir — I Help ME</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body class="page-watch">
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚙</span>
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </a>
+    <div class="search-bar-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar vídeos…" />
+      <button class="search-btn" id="searchBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+    <div class="header-actions">
+      <a href="profile.html" class="btn-icon" title="Perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="btn-icon menu-trigger" id="menuTrigger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="slide-menu" id="slideMenu" aria-hidden="true">
+  <div class="menu-header">
+    <span class="logo-text" style="font-size:1.1rem">I Help <strong>ME</strong></span>
+    <button class="menu-close" id="menuClose">✕</button>
+  </div>
+  <ul class="menu-nav">
+    <li><a href="index.html"><span>🏠</span> Início</a></li>
+    <li><a href="category.html?cat=hidraulica"><span>🔧</span> Hidráulica</a></li>
+    <li><a href="category.html?cat=eletrica"><span>⚡</span> Elétrica</a></li>
+    <li><a href="category.html?cat=marcenaria"><span>🪵</span> Marcenaria</a></li>
+    <li class="divider"></li>
+    <li><a href="profile.html"><span>👤</span> Meu Perfil</a></li>
+    <li><a href="profile.html#upload"><span>📤</span> Enviar Vídeo</a></li>
+    <li class="divider"></li>
+    <li><a href="settings.html"><span>⚙️</span> Configurações</a></li>
+    <li><a href="settings.html#notifications"><span></span> Notificações</a></li>
+    <li><a href="settings.html#privacy"><span></span> Privacidade</a></li>
+  </ul>
+  <div class="menu-footer"><p>© 2025 I Help ME</p></div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="watch-breadcrumb">
+  <a href="index.html">Início</a> ›
+  <a href="#" id="watchBreadCat"></a> ›
+  <span id="watchBreadTitle"></span>
+</div>
+
+<!-- WATCH LAYOUT -->
+<div class="watch-layout">
+
+  <!-- LEFT: Player + Info -->
+  <div class="watch-main">
+    <!-- Player -->
+    <div class="player-wrap" id="playerWrap">
+      <video id="videoPlayer" class="video-player" poster="" preload="metadata"></video>
+      <div class="play-overlay" id="playOverlay">
+        <button class="big-play-btn" id="bigPlayBtn" aria-label="Reproduzir">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+        <div class="player-gradient"></div>
+        <div class="player-meta-overlay" id="playerMetaOverlay"></div>
+      </div>
+
+      <!-- Simulated video player controls -->
+      <div class="player-controls" id="playerControls">
+        <div class="progress-bar-wrap">
+          <div class="progress-bg">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <input type="range" id="progressRange" min="0" max="100" value="0" class="progress-range" />
+        </div>
+        <div class="player-guide" id="playerGuide">Pressione <kbd>Space</kbd> para pausar, <kbd>←</kbd> para voltar 10s e <kbd>→</kbd> para avançar 10s.</div>
+        <div class="controls-row">
+          <button class="ctrl-btn" id="playPauseBtn" aria-label="Play/Pause">
+            <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon"><polygon points="5,3 19,12 5,21"/></svg>
+          </button>
+          <button class="ctrl-btn" id="rewindBtn" title="Voltar 10 segundos">⏪</button>
+          <button class="ctrl-btn" id="forwardBtn" title="Avançar 10 segundos">⏩</button>
+          <span class="time-display" id="timeDisplay">0:00 / 0:00</span>
+          <select id="speedSelect" class="speed-select" aria-label="Velocidade de reprodução">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+          <div class="vol-wrap">
+            <button class="ctrl-btn" id="muteBtn">🔊</button>
+            <input type="range" id="volRange" min="0" max="100" value="80" class="vol-range" />
+          </div>
+          <button class="ctrl-btn fullscreen-btn" id="fullscreenBtn">⛶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video info -->
+    <div class="video-info-block">
+      <div class="video-cat-badge" id="videoCatBadge"></div>
+      <h1 class="video-title" id="videoTitle">Carregando…</h1>
+      <div class="video-meta-row">
+        <div class="video-author">
+          <div class="author-avatar" id="authorAvatar"></div>
+          <div>
+            <span class="author-name" id="authorName"></span>
+            <span class="author-subs" id="authorSubs"></span>
+          </div>
+        </div>
+        <div class="video-actions">
+          <button class="action-btn like-btn" id="likeBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            <span id="likeCount">0</span>
+          </button>
+          <button class="action-btn share-btn" id="shareBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            Compartilhar
+          </button>
+          <button class="action-btn save-btn" id="saveBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            Salvar
+          </button>
+        </div>
+      </div>
+      <div class="video-views-date">
+        <span id="videoViews"></span> · <span id="videoDate"></span>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="video-description-block">
+      <h2>Descrição</h2>
+      <div class="video-desc-text" id="videoDesc"></div>
+    </div>
+
+    <!-- Content / Topics -->
+    <div class="video-content-block">
+      <h2>Conteúdo do Vídeo</h2>
+      <div class="content-timeline" id="contentTimeline"></div>
+    </div>
+
+    <!-- Tags -->
+    <div class="video-tags-block" id="videoTagsBlock">
+      <h2>Tags</h2>
+      <div class="tags-list" id="videoTags"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Queue -->
+  <aside class="watch-sidebar">
+    <h3 class="sidebar-title">A seguir</h3>
+    <div class="queue-list" id="queueList">
+      <!-- Injetado por JS -->
+    </div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">I Help <strong>ME</strong></span>
+      <p>Conhecimento técnico acessível para todos.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Categorias</strong>
+        <a href="category.html?cat=hidraulica">Hidráulica</a>
+        <a href="category.html?cat=eletrica">Elétrica</a>
+        <a href="category.html?cat=marcenaria">Marcenaria</a>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <a href="profile.html">Perfil</a>
+        <a href="settings.html">Configurações</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 I Help ME — Todos os direitos reservados.</p></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="watch.js"></script>
+</body>
+</html>

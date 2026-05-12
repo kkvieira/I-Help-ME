@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil — I Help ME</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body class="page-profile">
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⚙</span>
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </a>
+    <div class="search-bar-wrap">
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar vídeos…"/>
+      <button class="search-btn" id="searchBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+    </div>
+    <div class="header-actions">
+      <a href="profile.html" class="btn-icon active-icon" title="Perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button class="btn-icon menu-trigger" id="menuTrigger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- SLIDE MENU -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<nav class="slide-menu" id="slideMenu" aria-hidden="true">
+  <div class="menu-header">
+    <span class="logo-text" style="font-size:1.1rem">I Help <strong>ME</strong></span>
+    <button class="menu-close" id="menuClose">✕</button>
+  </div>
+  <ul class="menu-nav">
+    <li><a href="index.html"><span>🏠</span> Início</a></li>
+    <li><a href="category.html?cat=hidraulica"><span>🔧</span> Hidráulica</a></li>
+    <li><a href="category.html?cat=eletrica"><span>⚡</span> Elétrica</a></li>
+    <li><a href="category.html?cat=marcenaria"><span>🪵</span> Marcenaria</a></li>
+    <li class="divider"></li>
+    <li><a href="profile.html" class="active"><span>👤</span> Meu Perfil</a></li>
+    <li><a href="profile.html#upload"><span>📤</span> Enviar Vídeo</a></li>
+    <li class="divider"></li>
+    <li><a href="settings.html"><span>⚙️</span> Configurações</a></li>
+    <li><a href="settings.html#notifications"><span>🔔</span> Notificações</a></li>
+    <li><a href="settings.html#privacy"><span>🔒</span> Privacidade</a></li>
+  </ul>
+  <div class="menu-footer"><p>© 2025 I Help ME</p></div>
+</nav>
+
+<!-- PROFILE HERO -->
+<section class="profile-hero">
+  <div class="profile-cover">
+    <div class="cover-pattern"></div>
+  </div>
+  <div class="profile-info-row">
+    <div class="profile-avatar-wrap">
+      <div class="profile-avatar" id="profileAvatar">JO</div>
+      <button class="avatar-edit-btn" id="avatarEditBtn" title="Alterar foto">✎</button>
+    </div>
+    <div class="profile-details">
+      <h1 id="profileName">João Oliveira</h1>
+      <p id="profileBio">Eletricista com 12 anos de experiência. Apaixonado por ensinar e compartilhar conhecimento técnico.</p>
+      <div class="profile-stats">
+        <div class="pstat"><strong id="videoCount">0</strong><span>vídeos</span></div>
+        <div class="pstat"><strong id="watchedCount">0</strong><span>assistidos</span></div>
+        <div class="pstat"><strong id="savedCount">0</strong><span>salvos</span></div>
+      </div>
+    </div>
+    <div class="profile-actions">
+      <button class="btn-primary" id="editProfileBtn">✎ Editar perfil</button>
+      <a href="#upload" class="btn-secondary">📤 Novo vídeo</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE TABS -->
+<div class="profile-tabs-bar">
+  <button class="ptab active" data-tab="watched">▶ Histórico</button>
+  <button class="ptab" data-tab="saved">🔖 Salvos</button>
+  <button class="ptab" data-tab="myvideos">🎬 Meus Vídeos</button>
+  <button class="ptab" data-tab="upload" id="uploadTab">📤 Enviar</button>
+</div>
+
+<!-- TABS CONTENT -->
+<div class="profile-tabs-content">
+
+  <!-- HISTÓRICO -->
+  <div class="tab-panel active" id="tab-watched">
+    <div class="tab-header">
+      <h2>Histórico de Visualizações</h2>
+      <button class="btn-text danger" id="clearHistoryBtn">Limpar histórico</button>
+    </div>
+    <div class="video-grid" id="watchedGrid">
+      <div class="empty-state">
+        <span>🎬</span>
+        <p>Você ainda não assistiu nenhum vídeo.</p>
+        <a href="index.html" class="btn-primary">Explorar vídeos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALVOS -->
+  <div class="tab-panel" id="tab-saved">
+    <div class="tab-header">
+      <h2>Vídeos Salvos</h2>
+    </div>
+    <div class="video-grid" id="savedGrid">
+      <div class="empty-state">
+        <span>🔖</span>
+        <p>Nenhum vídeo salvo ainda.</p>
+        <a href="index.html" class="btn-primary">Descobrir vídeos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEUS VÍDEOS -->
+  <div class="tab-panel" id="tab-myvideos">
+    <div class="tab-header">
+      <h2>Meus Vídeos</h2>
+    </div>
+    <div class="video-grid" id="myVideosGrid">
+      <div class="empty-state">
+        <span>🎥</span>
+        <p>Você ainda não publicou nenhum vídeo.</p>
+        <button class="btn-primary" id="goUploadBtn">Enviar primeiro vídeo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPLOAD -->
+  <div class="tab-panel" id="tab-upload" style="anchor-name:--upload">
+    <div class="tab-header">
+      <h2>Publicar Novo Vídeo</h2>
+    </div>
+    <div class="upload-form-wrap">
+      <form class="upload-form" id="uploadForm" onsubmit="return false;">
+
+        <div class="upload-dropzone" id="dropzone">
+          <div class="dropzone-content">
+            <div class="dropzone-icon">📹</div>
+            <p><strong>Arraste seu vídeo aqui</strong></p>
+            <p class="small">ou</p>
+            <label for="videoFileInput" class="btn-primary">Selecionar arquivo</label>
+            <input type="file" id="videoFileInput" accept="video/*" style="display:none"/>
+          </div>
+          <div class="dropzone-preview" id="dropzonePreview" style="display:none">
+            <span class="file-name" id="fileName"></span>
+            <button type="button" class="remove-file" id="removeFile">✕</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Thumbnail (miniatura)</label>
+          <div class="thumb-upload" id="thumbUpload">
+            <input type="file" id="thumbInput" accept="image/*" style="display:none"/>
+            <label for="thumbInput" class="thumb-placeholder" id="thumbPlaceholder">
+              <span>🖼</span><span>Clique para adicionar thumbnail</span>
+            </label>
+            <img id="thumbPreview" style="display:none; width:100%; border-radius:8px; max-height:200px; object-fit:cover;"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="videoTitleInput">Título *</label>
+          <input type="text" id="videoTitleInput" class="form-input" placeholder="Ex: Como trocar o registro de pressão" maxlength="100" required/>
+          <span class="char-count" id="titleCount">0/100</span>
+        </div>
+
+        <div class="form-group">
+          <label for="videoCategory">Categoria *</label>
+          <select id="videoCategory" class="form-input" required>
+            <option value="">Escolha a categoria</option>
+            <option value="hidraulica">🔧 Hidráulica</option>
+            <option value="eletrica">⚡ Elétrica</option>
+            <option value="marcenaria">🪵 Marcenaria</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="videoDifficulty">Nível de dificuldade</label>
+          <select id="videoDifficulty" class="form-input">
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediario">Intermediário</option>
+            <option value="avancado">Avançado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="videoDescInput">Descrição *</label>
+          <textarea id="videoDescInput" class="form-input form-textarea" rows="5" placeholder="Descreva o conteúdo do vídeo, materiais necessários, passo a passo…" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="videoTagsInput">Tags (separadas por vírgula)</label>
+          <input type="text" id="videoTagsInput" class="form-input" placeholder="encanamento, registro, cano PVC…"/>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary btn-large" id="publishBtn">
+            <span>📤</span> Publicar Vídeo
+          </button>
+        </div>
+
+        <div class="upload-success" id="uploadSuccess" style="display:none">
+          <div class="success-icon">✅</div>
+          <h3>Vídeo enviado com sucesso!</h3>
+          <p>Seu vídeo está em análise e será publicado em breve.</p>
+          <button type="button" class="btn-secondary" id="newUploadBtn">Enviar outro vídeo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal-overlay" id="editModal" style="display:none">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Editar Perfil</h3>
+      <button class="modal-close" id="editModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Nome</label>
+        <input type="text" id="editName" class="form-input" value="João Oliveira"/>
+      </div>
+      <div class="form-group">
+        <label>Bio</label>
+        <textarea id="editBio" class="form-input form-textarea" rows="3">Eletricista com 12 anos de experiência. Apaixonado por ensinar e compartilhar conhecimento técnico.</textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn-primary" id="saveProfileBtn">Salvar alterações</button>
+        <button class="btn-secondary" id="cancelEditBtn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">I Help <strong>ME</strong></span>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Categorias</strong>
+        <a href="category.html?cat=hidraulica">Hidráulica</a>
+        <a href="category.html?cat=eletrica">Elétrica</a>
+        <a href="category.html?cat=marcenaria">Marcenaria</a>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <a href="settings.html">Configurações</a>
+        <a href="settings.html#privacy">Privacidade</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2025 I Help ME — Todos os direitos reservados.</p></div>
+</footer>
+
+<script src="data.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>
